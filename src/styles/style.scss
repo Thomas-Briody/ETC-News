@@ -1,0 +1,67 @@
+
+body {
+  background-color: #efebeb;
+  height: 100vh;
+}
+
+
+.hero {
+  background-color: #efebeb;
+}
+
+.has-text-light {
+  text-shadow: 1px 1px black;
+}
+
+
+.card {
+  height: 420px;
+}
+
+.overlay {
+  position: absolute
+}
+
+.tile {
+  background-size: cover;
+}
+
+
+a {
+  color: white !important;
+}
+
+//This is all styling for the article page
+.articleBox {
+  display: flex;
+  flex-direction: row;
+
+}
+#readmorelink {
+  color: black
+}
+
+
+.textitem {
+  padding: 10px
+}
+.articlepicture {
+  padding: 15px 10px 10px 10px
+}
+
+#readmorelink {
+  color: black !important;
+}
+#articleSubtitle {
+  margin: 5px 10px 5px 10px;
+}
+
+#articleButton {
+  margin: 10px;
+}
+
+#articleTitle {
+  margin: 10px;
+}
+
+//End of styling for the article page
