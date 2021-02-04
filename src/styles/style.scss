@@ -7,15 +7,35 @@ body {
 
 .hero {
   background-color: #efebeb;
+  background-image: url('https://i.imgur.com/3b3aQf3.png');
+  background-size: 100%
 }
 
 .has-text-light {
   text-shadow: 1px 1px black;
 }
 
+.shade-box {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 15px;
+  border-radius: 5px;
+}
 
-.card {
+.category-header {
+  font-size: 60px;
+  margin-bottom: 20px;
+}
+
+.teal-text {
+  color: teal
+}
+
+.category-card {
   height: 420px;
+}
+
+.article-card {
+  max-width: 600px !important;
 }
 
 .overlay {
@@ -24,6 +44,7 @@ body {
 
 .tile {
   background-size: cover;
+  background-repeat: no-repeat;
 }
 
 

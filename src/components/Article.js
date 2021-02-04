@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react'
-import axios from 'axios'
+import React from 'react'
+//import axios from 'axios'
 import { Link } from 'react-router-dom'
+import moment from 'moment'
 
 
 
@@ -13,36 +14,51 @@ export default function Article({ match, location }) {
   console.log(match, location)
 
 
-  return <div className="container is-max-widescreen my-6">
-
-    <div className='card is-centered p-4' >
-
-      <h2 className="title is-2" id="articleTitle">{news.title}</h2>
-    
-
-      <div> <h6 className="title is-6" id="articleSubtitle">Source: {news.source.name}</h6> </div>
+  return <section className="section hero is-fullheight">
+    <div className="container is-max-desktop">
 
 
-      <div className="articleBox">
-      <div className="articlepicture"> <img src={news.urlToImage} alt={news.title} width='400px' /></div>
-      <div className="textitem"> {news.description} <a href={news.url} target="_blank" id="readmorelink">Read more</a></div>
+      <div className="article-card card is-centered p-0">
+        <div className="card-image">
+          <figure className="image is-3by2">
+            <img src={news.urlToImage} alt={news.title} />
+          </figure>
+        </div>
+        <div className="card-content">
+
+          <div className="media-content">
+            <p className="title is-3 has-text-danger">{news.source.name}</p>
+          </div>
+          <div className="media-content">
+            <p className="title is-1">{news.title.split('-', 1)}</p>
+          </div>
+
+          <div className="title is-5 mt-3">By {news.author}</div>
+
+          <div className="content">
+            {news.description} <a href={news.url} target="_blank" rel="noreferrer" id="readmorelink">Read more at {news.source.name}</a>
+          </div>
+          <div className="content">
+            <p className="has-text-danger">Posted {moment(news.publishedAt).fromNow()}</p>
+          </div>
+          <div className="content p-0">
+            <Link key={news.name} to={{
+              pathname: id === '' ?
+                '/' :
+                `/category/${id}`
+
+            }}>
+              <button className="button is-dark m-0" id="articleButton">Go back</button>
+            </Link>
+
+          </div>
+        </div>
+
+
       </div>
-      <div>Author: {news.author}</div>
-      <div>
-        <Link key={news.name} to={{
-          pathname: id === '' ? 
-          '/':
-          `/category/${id}`
-          
-        }}>
-          <button className="button is-dark" id="articleButton">Go back</button>
-        </Link>
-
-      </div>
-
 
     </div>
-  </div>
+  </section>
 
 
 }

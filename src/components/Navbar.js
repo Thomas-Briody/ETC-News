@@ -6,7 +6,7 @@ export default function Navbar() {
     <div className="navbar-brand">
       <img style={{ height: 80, width: 80 }} src="https://i.imgur.com/BzrYmBZ.png" />
     </div>
-    <div id="mainNavbar" className="navbar-menu is-spaced">
+    <div id="mainNavbar" className="navbar-menu is-spaced px-3">
       <div className="navbar-start">
         <div style={{ fontSize: 25 }} className="navbar-item"><Link to={'/'}>Home</Link></div>
         <div style={{ fontSize: 25 }} className="navbar-item"><Link to={'/category/Business'}>Business</Link></div>
