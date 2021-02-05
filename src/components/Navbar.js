@@ -17,13 +17,13 @@ export default function Navbar() {
     </div>
     <div id="mainNavbar" className={`navbar-menu ${menu ? "is-active" : ''} is-spaced px-3`}>
       <div className="navbar-start">
-        <div style={{ fontSize: 22 }} className="navbar-item"><Link to={'/'}>Home</Link></div>
-        <div style={{ fontSize: 22 }} className="navbar-item"><Link to={'/category/Business'}>Business</Link></div>
-        <div style={{ fontSize: 22 }} className="navbar-item"><Link to={'/category/Entertainment'}>Entertainment</Link></div>
-        <div style={{ fontSize: 22 }} className="navbar-item"><Link to={'/category/Health'}>Health</Link></div>
-        <div style={{ fontSize: 22 }} className="navbar-item"><Link to={'/category/Science'}>Science</Link></div>
-        <div style={{ fontSize: 22 }} className="navbar-item"><Link to={'/category/Sports'}>Sports</Link></div>
-        <div style={{ fontSize: 22 }} className="navbar-item"><Link to={'/category/Technology'}>Technology</Link></div>
+        <div style={{ fontSize: 22 }} className="navbar-item"><Link to={'/project-2/'}>Home</Link></div>
+        <div style={{ fontSize: 22 }} className="navbar-item"><Link to={'/project-2/category/Business'}>Business</Link></div>
+        <div style={{ fontSize: 22 }} className="navbar-item"><Link to={'/project-2/category/Entertainment'}>Entertainment</Link></div>
+        <div style={{ fontSize: 22 }} className="navbar-item"><Link to={'/project-2/category/Health'}>Health</Link></div>
+        <div style={{ fontSize: 22 }} className="navbar-item"><Link to={'/project-2/category/Science'}>Science</Link></div>
+        <div style={{ fontSize: 22 }} className="navbar-item"><Link to={'/project-2/category/Sports'}>Sports</Link></div>
+        <div style={{ fontSize: 22 }} className="navbar-item"><Link to={'/project-2/category/Technology'}>Technology</Link></div>
       </div>
       <div className="navbar-end"></div>
     </div>

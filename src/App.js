@@ -23,12 +23,11 @@ const App = () => (
   <BrowserRouter>
     <NavBar />
     <Switch>
-      <Route exact path="/" component={Home}/>
-      <Route exact path="/category/:id" component={Category}/>
-      <Route exact path="/article" component={Article}/>
-      <Route exact path="/weather" component={Weather}/>
-      <Route exact path="/category/:id/article" component={Article}/>
-
+      <Route exact path="/project-2/" component={Home}/>
+      <Route exact path="/project-2/category/:id" component={Category}/>
+      <Route exact path="/project-2/article" component={Article}/>
+      <Route exact path="/project-2/weather" component={Weather}/>
+      <Route exact path="/project-2/category/:id/article" component={Article}/>
     </Switch>
   </BrowserRouter>
 
