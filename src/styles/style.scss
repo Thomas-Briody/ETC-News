@@ -1,14 +1,19 @@
+// background dark grey: #595f6c
+// teal logo light: #70acb1
+// background cream: #eeeeee
+// teal logo bright: #4daab3
+
 
 body {
-  background-color: #efebeb;
   height: 100vh;
+  background-color: #efebeb;
+  background-size: cover;
 }
 
 
 .hero {
-  background-color: #efebeb;
-  background-image: url('https://i.imgur.com/3b3aQf3.png');
-  background-size: 100%
+  background-color: #eeeeee;
+  background-size: 100%;
 }
 
 .has-text-light {
@@ -27,7 +32,9 @@ body {
 }
 
 .teal-text {
-  color: teal
+  color: #4daab3;
+  font-weight: bold;
+  letter-spacing: 0.1em;
 }
 
 .category-card {
@@ -35,7 +42,7 @@ body {
 }
 
 .article-card {
-  max-width: 600px !important;
+  max-width: 750px !important;
 }
 
 .overlay {
@@ -49,7 +56,7 @@ body {
 
 
 a {
-  color: white !important;
+  color: #4daab3 !important;
 }
 
 //This is all styling for the article page
@@ -86,3 +93,44 @@ a {
 }
 
 //End of styling for the article page
+
+
+
+#flexboxCardBottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  // align-items: center;
+  position: absolute;
+  bottom: 10px;
+}
+
+//weather
+
+#flexbox1Card {
+  padding: 0;
+  margin: 0;
+ 
+}
+
+#flexbox2Card {
+  padding: 0;
+  color: grey;
+}
+#flexboxWeather {
+  display: flex;
+  flex-direction: row;
+
+}
+#temperature {
+  margin-top: 5px;
+}
+
+#weatherMainBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+//end of weather

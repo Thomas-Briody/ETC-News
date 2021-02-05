@@ -3,6 +3,7 @@ import axios from 'axios'
 //import data from './Data.js'
 import { Link } from 'react-router-dom'
 import moment from 'moment'
+import Weather from './Weather'
 
 
 export default function Home() {
@@ -11,12 +12,11 @@ export default function Home() {
   // })
 
   const [newsCards, updateNewsCards] = useState([]) // ! Enter filteredArticles in here if pulling from Data
-  //const [articleNumber, updateArticleNumber] = useState(0)
   const [loading, updateLoading] = useState(true)  // ! Change to false if pulling from undefined
 
 
   useEffect(() => {
-    axios.get('https://newsapi.org/v2/top-headlines?country=gb&pageSize=20&apiKey=309856e485794ed68f98372ffbd46d5b')
+    axios.get(`https://newsapi.org/v2/top-headlines?country=gb&apiKey=${process.env.apikeynews}`)
       .then(({ data }) => {
         const filteredArticles = data.articles.filter(article => {
           return article.urlToImage
@@ -31,23 +31,44 @@ export default function Home() {
 
 
 
-
   if (loading) {
     return <h1>Loading</h1>
   }
 
+
+
   console.log(moment(newsCards[0].publishedAt).fromNow())
+
+  function removeSource(news) {
+    const newsTitle = news.title.split('-')
+    newsTitle.pop()
+    const newsString = newsTitle.join('')
+    return newsString
+  }
 
   return <>
 
-    <section className="hero is-fullheight">
-      <div className="container is-max-widescreen my-6">
+    <section className="hero is-fullheight pb-6">
+      <div className="container is-max-widescreen">
         <div className="tile is-ancestor is-vertical">
 
-          <div className="tile is-parent is-12">
-            <div className="tile is-child is-flex is-justify-content-flex-end page-header">
-              ETC NEWS + Logo + Tagline (background?)
+          <div className="tile is-parent is-12 my-3 pb-0">
+
+            <div className="tile is-ancestor">
+              <div className="tile is-parent is-1 pr-0 pl-2">
+                <div className="tile is-child is-flex is-justify-content-flex-end">
+                  <img style={{ height: 80, margin: 5 }} src="https://i.imgur.com/ozQzxDk.png" />
+                </div>
+              </div>
+
+              <div className="tile is-parent is-vertical pl-0">
+                <div className="tile is-child is-6 pb-0 mb-0">
+                  <p className="teal-text mb-0" style={{ fontSize: '60px', marginLeft: 10, lineHeight: '1em', marginTop: 14 }}>ETC NEWS</p>
+                  <p style={{ fontSize: '25px', marginLeft: 12 }}>news you need to know.</p>
+                </div>
+              </div>
             </div>
+
           </div>
 
 
@@ -60,7 +81,7 @@ export default function Home() {
                 style={{
                   backgroundImage: `url(${newsCards[0].urlToImage})`
                 }}>
-                <Link key={newsCards[0].title.split('-', 1)} to={{
+                <Link key={newsCards[0].title} to={{
                   pathname: '/article',
                   state: {
                     news: newsCards[0],
@@ -69,7 +90,7 @@ export default function Home() {
                 }}>
                   <div className="shade-box">
                     <p className="subtitle has-text-light">{newsCards[0].source.name}</p>
-                    <h1 className="title has-text-light">{newsCards[0].title.split('-', 1)}</h1>
+                    <h1 className="title has-text-light">{removeSource(newsCards[0])}</h1>
                   </div>
                 </Link>
               </div>
@@ -77,7 +98,14 @@ export default function Home() {
 
             <div className="tile is-parent is-vertical is-3">
               <div className="tile is-child box has-background-primary-light">
-                <Link key={newsCards[1].title.split('-', 1)} to={{
+
+
+                <Weather />
+
+
+              </div>
+              <div className="tile is-child box has-background-info-light">
+                <Link key={newsCards[1].title} to={{
                   pathname: '/article',
                   state: {
                     news: newsCards[1],
@@ -85,19 +113,7 @@ export default function Home() {
                   }
                 }}>
                   <p className="subtitle is-6 px-2 pt-2 has-text-danger">{newsCards[1].source.name}</p>
-                  <h2 className="title is-5 px-2 pb-2">{newsCards[1].title.split('-', 1)}</h2>
-                </Link>
-              </div>
-              <div className="tile is-child box has-background-info-light">
-                <Link key={newsCards[2].title.split('-', 1)} to={{
-                  pathname: '/article',
-                  state: {
-                    news: newsCards[2],
-                    id: ''
-                  }
-                }}>
-                  <p className="subtitle is-6 px-2 pt-2 has-text-danger">{newsCards[2].source.name}</p>
-                  <h2 className="title is-5 px-2 pb-2">{newsCards[2].title.split('-', 1)}</h2>
+                  <h2 className="title is-5 px-2 pb-2">{removeSource(newsCards[1])}</h2>
                 </Link>
               </div>
               <div className="tile is-child box has-background-link-light">
@@ -109,7 +125,7 @@ export default function Home() {
                   }
                 }}>
                   <p className="subtitle is-6 px-2 pt-2 has-text-danger">{newsCards[3].source.name}</p>
-                  <h2 className="title is-5 px-2 pb-2">{newsCards[3].title.split('-', 1)}</h2>
+                  <h2 className="title is-5 px-2 pb-2">{removeSource(newsCards[3])}</h2>
                 </Link>
               </div>
             </div>
@@ -120,8 +136,16 @@ export default function Home() {
                     <img src={newsCards[4].urlToImage} />
                   </figure>
                 </div>
-                <p className="subtitle is-6 px-4 pt-3 has-text-danger">{newsCards[4].source.name}</p>
-                <h2 className="title is-3 px-4 pb-4">{newsCards[4].title.split('-', 1)}</h2>
+                <Link key={newsCards[4].title} to={{
+                  pathname: '/article',
+                  state: {
+                    news: newsCards[4],
+                    id: ''
+                  }
+                }}>
+                  <p className="subtitle is-6 px-4 pt-3 has-text-danger">{newsCards[4].source.name}</p>
+                  <h2 className="title is-3 px-4 pb-4">{removeSource(newsCards[4])}</h2>
+                </Link>
               </div>
             </div>
           </div>
@@ -130,16 +154,40 @@ export default function Home() {
 
             <div className="tile is-parent is-vertical is-3">
               <div className="tile is-child box has-background-primary-light">
-                <p className="subtitle is-6 px-2 pt-2 has-text-danger">{newsCards[5].source.name}</p>
-                <h2 className="title is-5 px-2 pb-2">{newsCards[5].title.split('-', 1)}</h2>
+                <Link key={newsCards[5].title} to={{
+                  pathname: '/article',
+                  state: {
+                    news: newsCards[5],
+                    id: ''
+                  }
+                }}>
+                  <p className="subtitle is-6 px-2 pt-2 has-text-danger">{newsCards[5].source.name}</p>
+                  <h2 className="title is-5 px-2 pb-2">{removeSource(newsCards[5])}</h2>
+                </Link>
               </div>
               <div className="tile is-child box has-background-info-light">
-                <p className="subtitle is-6 px-2 pt-2 has-text-danger">{newsCards[6].source.name}</p>
-                <h2 className="title is-5 px-2 pb-2">{newsCards[6].title.split('-', 1)}</h2>
+                <Link key={newsCards[6].title} to={{
+                  pathname: '/article',
+                  state: {
+                    news: newsCards[6],
+                    id: ''
+                  }
+                }}>
+                  <p className="subtitle is-6 px-2 pt-2 has-text-danger">{newsCards[6].source.name}</p>
+                  <h2 className="title is-5 px-2 pb-2">{removeSource(newsCards[6])}</h2>
+                </Link>
               </div>
               <div className="tile is-child box has-background-link-light">
-                <p className="subtitle is-6 px-2 pt-2 has-text-danger">{newsCards[7].source.name}</p>
-                <h2 className="title is-5 px-2 pb-2">{newsCards[7].title.split('-', 1)}</h2>
+                <Link key={newsCards[7].title} to={{
+                  pathname: '/article',
+                  state: {
+                    news: newsCards[7],
+                    id: ''
+                  }
+                }}>
+                  <p className="subtitle is-6 px-2 pt-2 has-text-danger">{newsCards[7].source.name}</p>
+                  <h2 className="title is-5 px-2 pb-2">{removeSource(newsCards[7])}</h2>
+                </Link>
               </div>
             </div>
 
@@ -150,8 +198,16 @@ export default function Home() {
                     <img src={newsCards[8].urlToImage} />
                   </figure>
                 </div>
-                <p className="subtitle is-6 px-4 pt-3 has-text-danger">{newsCards[8].source.name}</p>
-                <h2 className="title is-3 px-4 pb-4">{newsCards[8].title.split('-', 1)}</h2>
+                <Link key={newsCards[8].title} to={{
+                  pathname: '/article',
+                  state: {
+                    news: newsCards[8],
+                    id: ''
+                  }
+                }}>
+                  <p className="subtitle is-6 px-4 pt-3 has-text-danger">{newsCards[8].source.name}</p>
+                  <h2 className="title is-3 px-4 pb-4">{removeSource(newsCards[8])}</h2>
+                </Link>
               </div>
             </div>
 
@@ -162,19 +218,35 @@ export default function Home() {
                 style={{
                   backgroundImage: `url(${newsCards[10].urlToImage})`
                 }}>
-                <div className="shade-box">
-                  <p className="subtitle is-6 has-text-light">{newsCards[10].source.name}</p>
-                  <h2 className="title is-4 has-text-light">{newsCards[10].title.split('-', 1)}</h2>
-                </div>
+                <Link key={newsCards[10].title} to={{
+                  pathname: '/article',
+                  state: {
+                    news: newsCards[10],
+                    id: ''
+                  }
+                }}>
+                  <div className="shade-box">
+                    <p className="subtitle is-6 has-text-light">{newsCards[10].source.name}</p>
+                    <h2 className="title is-4 has-text-light">{removeSource(newsCards[10])}</h2>
+                  </div>
+                </Link>
               </div>
               <div className="tile is-child box p-2"
                 style={{
                   backgroundImage: `url(${newsCards[11].urlToImage})`
                 }}>
-                <div className="shade-box">
-                  <p className="subtitle is-6 has-text-light">{newsCards[11].source.name}</p>
-                  <h2 className="title is-4 has-text-light">{newsCards[11].title.split('-', 1)}</h2>
-                </div>
+                <Link key={newsCards[11].title} to={{
+                  pathname: '/article',
+                  state: {
+                    news: newsCards[11],
+                    id: ''
+                  }
+                }}>
+                  <div className="shade-box">
+                    <p className="subtitle is-6 has-text-light">{newsCards[11].source.name}</p>
+                    <h2 className="title is-4 has-text-light">{removeSource(newsCards[11])}</h2>
+                  </div>
+                </Link>
               </div>
             </div>
 
@@ -185,8 +257,16 @@ export default function Home() {
                     <img src={newsCards[9].urlToImage} />
                   </figure>
                 </div>
-                <p className="subtitle is-6 px-4 pt-3 has-text-danger">{newsCards[9].source.name}</p>
-                <h2 className="title is-3 px-4 pb-4">{newsCards[9].title.split('-', 1)}</h2>
+                <Link key={newsCards[9].title} to={{
+                  pathname: '/article',
+                  state: {
+                    news: newsCards[9],
+                    id: ''
+                  }
+                }}>
+                  <p className="subtitle is-6 px-4 pt-3 has-text-danger">{newsCards[9].source.name}</p>
+                  <h2 className="title is-3 px-4 pb-4">{removeSource(newsCards[9])}</h2>
+                </Link>
               </div>
             </div>
 
@@ -203,11 +283,14 @@ export default function Home() {
               }}>
               <Link key={newsCards[12].title} to={{
                 pathname: '/article',
-                state: newsCards[12]
+                state: {
+                  news: newsCards[12],
+                  id: ''
+                }
               }}>
                 <div className="shade-box">
                   <p className="subtitle is-5 has-text-light">{newsCards[12].source.name}</p>
-                  <h1 className="title has-text-light">{newsCards[12].title.split('-', 1)}</h1>
+                  <h1 className="title has-text-light">{removeSource(newsCards[12])}</h1>
                 </div>
               </Link>
             </div>
@@ -221,11 +304,14 @@ export default function Home() {
               }}>
               <Link key={newsCards[13].title} to={{
                 pathname: '/article',
-                state: newsCards[13]
+                state: {
+                  news: newsCards[13],
+                  id: ''
+                }
               }}>
                 <div className="shade-box">
                   <p className="subtitle is-5 has-text-light">{newsCards[13].source.name}</p>
-                  <h1 className="title has-text-light">{newsCards[13].title.split('-', 1)}</h1>
+                  <h1 className="title has-text-light">{removeSource(newsCards[13])}</h1>
                 </div>
               </Link>
             </div>
@@ -235,22 +321,6 @@ export default function Home() {
 
       </div>
     </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   </>
   //console.log(articleNumber)

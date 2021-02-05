@@ -13,6 +13,10 @@ export default function Article({ match, location }) {
   const id = location.state.id
   console.log(match, location)
 
+  const newsTitle = news.title.split('-')
+  newsTitle.pop()
+  const newsString = newsTitle.join('')
+
 
   return <section className="section hero is-fullheight">
     <div className="container is-max-desktop">
@@ -30,7 +34,7 @@ export default function Article({ match, location }) {
             <p className="title is-3 has-text-danger">{news.source.name}</p>
           </div>
           <div className="media-content">
-            <p className="title is-1">{news.title.split('-', 1)}</p>
+            <p className="title is-1">{newsString}</p>
           </div>
 
           <div className="title is-5 mt-3">By {news.author}</div>

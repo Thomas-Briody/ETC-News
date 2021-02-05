@@ -12,6 +12,7 @@ import NavBar from './components/Navbar'
 import Home from './components/Home'
 import Category from './components/category'
 import Article from './components/article'
+import Weather from './components/weather'
 
 // ? style
 
@@ -25,7 +26,9 @@ const App = () => (
       <Route exact path="/" component={Home}/>
       <Route exact path="/category/:id" component={Category}/>
       <Route exact path="/article" component={Article}/>
+      <Route exact path="/weather" component={Weather}/>
       <Route exact path="/category/:id/article" component={Article}/>
+
     </Switch>
   </BrowserRouter>
 
