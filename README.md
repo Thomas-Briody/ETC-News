@@ -1,22 +1,22 @@
 <img src="https://github.com/ketka82uk/Tic-Tac-Dino/blob/master/unnamed.png?raw=true" alt="drawing" width="150"/>
 
-###General Assembley Software Engineering Immersive Course
+### General Assembley Software Engineering Immersive Course
 
-#ETC News Site
+# ETC News Site
 
 <img src="https://i.imgur.com/KZ7UGjw.png"/>
 
-##News you need to know.
+## news you need to know.
 
 
 
-###The brief
+### The brief
 
-###Our API
+### Our API
 newsapi.org
 
 
-###Technologies
+### Technologies
 Javascript
 HTML
 CSS
@@ -24,43 +24,43 @@ React
 Webpack
 Bulma
 
-##The logic
+## The logic
 
-###Creating the routes
+### Creating the routes
 Using React to route around the site
 
 
-###Pulling data
+### Pulling data
 Getting into the api
 
 
-###Styling
+### Styling
 Bulma
 
 
-##The user experience
+## The user experience
 
-###Interactivity
+### Interactivity
 Ability to navigate with ease
 
-###Look and Feel
+### Look and Feel
 Attractively presented
 
-##Next time...
+## Next time...
 
-###Improvements
+### Improvements
 Homepage - better way of coding the data like map but with different size tiles.
 
 
-###Future additions
+### Future additions
 World news
 Search bar
 Load more option
 
-###Bugs squished (and not-so-squished)
+### Bugs squished (and not-so-squished)
 API access!
 
-##Assets
+## Assets
 Date js
 logo maker
 
