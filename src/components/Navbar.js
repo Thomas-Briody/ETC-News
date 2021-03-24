@@ -29,9 +29,7 @@ export default function Navbar() {
 
         <div style={{ fontSize: 22 }} className="navbar-item">
           <Link to={'/ETC-News/category/business'}
-            onClick={() => setTimeout(() => {
-              window.location.reload()
-            }, 200)}>Business</Link></div>
+          >Business</Link></div>
 
         <div style={{ fontSize: 22 }} className="navbar-item">
           <Link to={'/ETC-News/category/entertainment'}
