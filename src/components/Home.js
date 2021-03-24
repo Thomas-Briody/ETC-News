@@ -1,41 +1,25 @@
-import React, { useEffect, useState } from 'react'
-import axios from 'axios'
-//import data from './Data.js'
+import React, { useState } from 'react'
+// import axios from 'axios'
+import data from './data/homepage_data.js'
 import { Link } from 'react-router-dom'
 import moment from 'moment'
 import Weather from './Weather'
 
 
 export default function Home() {
-  // const filteredArticles = data.articles.filter(article => {
-  //   return article.urlToImage
-  // })
+  const filteredArticles = data.articles.filter(article => {
+    return article.urlToImage
+  })
 
-  const [newsCards, updateNewsCards] = useState([]) // ! Enter filteredArticles in here if pulling from Data
-  const [loading, updateLoading] = useState(true)  // ! Change to false if pulling from undefined
-
-
-  useEffect(() => {
-    axios.get(`https://newsapi.org/v2/top-headlines?country=gb&apiKey=${process.env.apikeynews}`)
-      .then(({ data }) => {
-        const filteredArticles = data.articles.filter(article => {
-          return article.urlToImage
-        })
-        updateNewsCards(filteredArticles)
-        updateLoading(false)
-      })
-  }, [])
-
-  console.log(newsCards)
-
-
-
+  const date = Date(Date.now())
+  const date2 = date.toString().split(' ').slice(1,4).join(' ')
+  
+  const [newsCards, updateNewsCards] = useState(filteredArticles) // ! Enter filteredArticles in here if pulling from Data
+  const [loading, updateLoading] = useState(false)  // ! Change to false if pulling from undefined
 
   if (loading) {
     return <h1>Loading</h1>
   }
-
-
 
   console.log(moment(newsCards[0].publishedAt).fromNow())
 
@@ -62,9 +46,15 @@ export default function Home() {
               </div>
 
               <div className="tile is-parent is-vertical pl-0">
-                <div className="tile is-child is-6 pb-0 mb-0">
+                <div className="tile is-child pb-0 mb-0">
                   <p className="teal-text mb-0" style={{ fontSize: '60px', marginLeft: 10, lineHeight: '1em', marginTop: 14 }}>ETC NEWS</p>
                   <p style={{ fontSize: '25px', marginLeft: 12 }}>news you need to know.</p>
+                </div>
+              </div>
+
+              <div className="tile is-parent is-vertical pl-0 is-2">
+                <div className="tile is-child pb-0 mb-0">
+                  <p className="has-text-right" style={{ fontSize: '40px', marginLeft: 10, lineHeight: '1em', marginTop: 14 }}>{date2}</p>
                 </div>
               </div>
             </div>
@@ -106,7 +96,7 @@ export default function Home() {
               </div>
               <div className="tile is-child box has-background-info-light">
                 <Link key={newsCards[1].title} to={{
-                  pathname: '/project-2/article',
+                  pathname: '/ETC.News/article',
                   state: {
                     news: newsCards[1],
                     id: ''
@@ -118,7 +108,7 @@ export default function Home() {
               </div>
               <div className="tile is-child box has-background-link-light">
                 <Link key={newsCards[3].title.split('-', 1)} to={{
-                  pathname: '/project-2/article',
+                  pathname: '/ETC.News/article',
                   state: {
                     news: newsCards[3],
                     id: ''
@@ -137,7 +127,7 @@ export default function Home() {
                   </figure>
                 </div>
                 <Link key={newsCards[4].title} to={{
-                  pathname: '/project-2/article',
+                  pathname: '/ETC.News/article',
                   state: {
                     news: newsCards[4],
                     id: ''
@@ -155,7 +145,7 @@ export default function Home() {
             <div className="tile is-parent is-vertical is-3">
               <div className="tile is-child box has-background-primary-light">
                 <Link key={newsCards[5].title} to={{
-                  pathname: '/project-2/article',
+                  pathname: '/ETC.News/article',
                   state: {
                     news: newsCards[5],
                     id: ''
@@ -167,7 +157,7 @@ export default function Home() {
               </div>
               <div className="tile is-child box has-background-info-light">
                 <Link key={newsCards[6].title} to={{
-                  pathname: '/project-2/article',
+                  pathname: '/ETC.News/article',
                   state: {
                     news: newsCards[6],
                     id: ''
@@ -179,7 +169,7 @@ export default function Home() {
               </div>
               <div className="tile is-child box has-background-link-light">
                 <Link key={newsCards[7].title} to={{
-                  pathname: '/project-2/article',
+                  pathname: '/ETC.News/article',
                   state: {
                     news: newsCards[7],
                     id: ''
@@ -199,7 +189,7 @@ export default function Home() {
                   </figure>
                 </div>
                 <Link key={newsCards[8].title} to={{
-                  pathname: '/project-2/article',
+                  pathname: '/ETC.News/article',
                   state: {
                     news: newsCards[8],
                     id: ''
@@ -219,7 +209,7 @@ export default function Home() {
                   backgroundImage: `url(${newsCards[10].urlToImage})`
                 }}>
                 <Link key={newsCards[10].title} to={{
-                  pathname: '/project-2/article',
+                  pathname: '/ETC.News/article',
                   state: {
                     news: newsCards[10],
                     id: ''
@@ -236,7 +226,7 @@ export default function Home() {
                   backgroundImage: `url(${newsCards[11].urlToImage})`
                 }}>
                 <Link key={newsCards[11].title} to={{
-                  pathname: '/project-2/article',
+                  pathname: '/ETC.News/article',
                   state: {
                     news: newsCards[11],
                     id: ''
@@ -258,7 +248,7 @@ export default function Home() {
                   </figure>
                 </div>
                 <Link key={newsCards[9].title} to={{
-                  pathname: '/project-2/article',
+                  pathname: '/ETC.News/article',
                   state: {
                     news: newsCards[9],
                     id: ''
@@ -282,7 +272,7 @@ export default function Home() {
                 height: '300px'
               }}>
               <Link key={newsCards[12].title} to={{
-                pathname: '/project-2/article',
+                pathname: '/ETC.News/article',
                 state: {
                   news: newsCards[12],
                   id: ''
@@ -303,7 +293,7 @@ export default function Home() {
                 height: '300px'
               }}>
               <Link key={newsCards[13].title} to={{
-                pathname: '/project-2/article',
+                pathname: '/ETC.News/article',
                 state: {
                   news: newsCards[13],
                   id: ''

@@ -2,24 +2,58 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import moment from 'moment'
-
+import business from './data/business_data.js'
+import entertainment from './data/entertainment_data.js'
+import health from './data/health_data.js'
+import science from './data/science_data.js'
+import sports from './data/sports_data.js'
+import technology from './data/technology_data.js'
 
 
 export default function Category({ match }) {
   const id = match.params.id
-  console.log('ID', match)
-  console.log('ID', id)
   const [selectedCategory, updateSelectedCategory] = useState([])
-  useEffect(() => {
-    axios.get(`https://newsapi.org/v2/top-headlines?country=gb&category=${id}&apiKey=${process.env.apikeynews}`)
-      .then(({ data }) => {
-        const filteredArray = data.articles.filter(article => {
-          return article.urlToImage && article.urlToImage.includes('http')
-        })
-        updateSelectedCategory(filteredArray)
+
+
+  function updateData() {
+    let filteredArticles = []
+    
+    if (id === 'business') {
+      filteredArticles = business.articles.filter(article => {
+        return article.urlToImage
       })
-  }, [id])
+    } else if (id === 'entertainment') {
+      filteredArticles = entertainment.articles.filter(article => {
+        return article.urlToImage
+      })
+    } else if (id === 'health') {
+      filteredArticles = health.articles.filter(article => {
+        return article.urlToImage
+      })
+    } else if (id === 'science') {
+      filteredArticles = science.articles.filter(article => {
+        return article.urlToImage
+      })
+    } else if (id === 'sports') {
+      filteredArticles = sports.articles.filter(article => {
+        return article.urlToImage
+      })
+    } else if (id === 'technology') {
+      filteredArticles = technology.articles.filter(article => {
+        return article.urlToImage
+      })
+    }
+    updateSelectedCategory(filteredArticles)
+    return filteredArticles
+  }
+
+  useEffect(() => {
+    updateData()
+  }, [])
+
+
   if (!selectedCategory[0]) return null
+
   return <section className="section hero is-fullheight">
 
 
@@ -35,7 +69,6 @@ export default function Category({ match }) {
     <div className="container is-max-widescreen">
       <div className="columns is-multiline">
         {selectedCategory.map((news, index) => {
-          console.log('NEWS SPLIT', news.title.split('-'))
 
           const newsTitle = news.title.split('-')
           newsTitle.pop()
@@ -44,7 +77,7 @@ export default function Category({ match }) {
           return <div className="column is-one-quarter" key={index}>
 
             <Link key={news.name} to={{
-              pathname: `/project-2/category/${id}/article`,
+              pathname: `/ETC.News/category/${id}/article`,
               state: {
                 news: news,
                 id: id
