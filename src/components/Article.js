@@ -48,8 +48,8 @@ export default function Article({ match, location }) {
           <div className="content p-0">
             <Link key={news.name} to={{
               pathname: id === '' ?
-                '/ETC.News' :
-                `/ETC.News/category/${id}`
+                '/ETC-News' :
+                `/ETC-News/category/${id}`
 
             }}>
               <button className="button is-dark m-0" id="articleButton">Go back</button>

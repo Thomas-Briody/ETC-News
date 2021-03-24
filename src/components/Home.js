@@ -96,7 +96,7 @@ export default function Home() {
               </div>
               <div className="tile is-child box has-background-info-light">
                 <Link key={newsCards[1].title} to={{
-                  pathname: '/ETC.News/article',
+                  pathname: '/ETC-News/article',
                   state: {
                     news: newsCards[1],
                     id: ''
@@ -108,7 +108,7 @@ export default function Home() {
               </div>
               <div className="tile is-child box has-background-link-light">
                 <Link key={newsCards[3].title.split('-', 1)} to={{
-                  pathname: '/ETC.News/article',
+                  pathname: '/ETC-News/article',
                   state: {
                     news: newsCards[3],
                     id: ''
@@ -127,7 +127,7 @@ export default function Home() {
                   </figure>
                 </div>
                 <Link key={newsCards[4].title} to={{
-                  pathname: '/ETC.News/article',
+                  pathname: '/ETC-News/article',
                   state: {
                     news: newsCards[4],
                     id: ''
@@ -145,7 +145,7 @@ export default function Home() {
             <div className="tile is-parent is-vertical is-3">
               <div className="tile is-child box has-background-primary-light">
                 <Link key={newsCards[5].title} to={{
-                  pathname: '/ETC.News/article',
+                  pathname: '/ETC-News/article',
                   state: {
                     news: newsCards[5],
                     id: ''
@@ -157,7 +157,7 @@ export default function Home() {
               </div>
               <div className="tile is-child box has-background-info-light">
                 <Link key={newsCards[6].title} to={{
-                  pathname: '/ETC.News/article',
+                  pathname: '/ETC-News/article',
                   state: {
                     news: newsCards[6],
                     id: ''
@@ -169,7 +169,7 @@ export default function Home() {
               </div>
               <div className="tile is-child box has-background-link-light">
                 <Link key={newsCards[7].title} to={{
-                  pathname: '/ETC.News/article',
+                  pathname: '/ETC-News/article',
                   state: {
                     news: newsCards[7],
                     id: ''
@@ -189,7 +189,7 @@ export default function Home() {
                   </figure>
                 </div>
                 <Link key={newsCards[8].title} to={{
-                  pathname: '/ETC.News/article',
+                  pathname: '/ETC-News/article',
                   state: {
                     news: newsCards[8],
                     id: ''
@@ -209,7 +209,7 @@ export default function Home() {
                   backgroundImage: `url(${newsCards[10].urlToImage})`
                 }}>
                 <Link key={newsCards[10].title} to={{
-                  pathname: '/ETC.News/article',
+                  pathname: '/ETC-News/article',
                   state: {
                     news: newsCards[10],
                     id: ''
@@ -226,7 +226,7 @@ export default function Home() {
                   backgroundImage: `url(${newsCards[11].urlToImage})`
                 }}>
                 <Link key={newsCards[11].title} to={{
-                  pathname: '/ETC.News/article',
+                  pathname: '/ETC-News/article',
                   state: {
                     news: newsCards[11],
                     id: ''
@@ -248,7 +248,7 @@ export default function Home() {
                   </figure>
                 </div>
                 <Link key={newsCards[9].title} to={{
-                  pathname: '/ETC.News/article',
+                  pathname: '/ETC-News/article',
                   state: {
                     news: newsCards[9],
                     id: ''
@@ -272,7 +272,7 @@ export default function Home() {
                 height: '300px'
               }}>
               <Link key={newsCards[12].title} to={{
-                pathname: '/ETC.News/article',
+                pathname: '/ETC-News/article',
                 state: {
                   news: newsCards[12],
                   id: ''
@@ -293,7 +293,7 @@ export default function Home() {
                 height: '300px'
               }}>
               <Link key={newsCards[13].title} to={{
-                pathname: '/ETC.News/article',
+                pathname: '/ETC-News/article',
                 state: {
                   news: newsCards[13],
                   id: ''

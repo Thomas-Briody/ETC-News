@@ -77,7 +77,7 @@ export default function Category({ match }) {
           return <div className="column is-one-quarter" key={index}>
 
             <Link key={news.name} to={{
-              pathname: `/ETC.News/category/${id}/article`,
+              pathname: `/ETC-News/category/${id}/article`,
               state: {
                 news: news,
                 id: id

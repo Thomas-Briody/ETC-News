@@ -22,43 +22,43 @@ export default function Navbar() {
       <div className="navbar-start">
 
         <div style={{ fontSize: 22 }} className="navbar-item">
-          <Link to={'/ETC.News/'}
+          <Link to={'/ETC-News/'}
             onClick={() => setTimeout(() => {
               window.location.reload()
             }, 200)}>Home</Link></div>
 
         <div style={{ fontSize: 22 }} className="navbar-item">
-          <Link to={'/ETC.News/category/business'}
+          <Link to={'/ETC-News/category/business'}
             onClick={() => setTimeout(() => {
               window.location.reload()
             }, 200)}>Business</Link></div>
 
         <div style={{ fontSize: 22 }} className="navbar-item">
-          <Link to={'/ETC.News/category/entertainment'}
+          <Link to={'/ETC-News/category/entertainment'}
             onClick={() => setTimeout(() => {
               window.location.reload()
             }, 200)}>Entertainment</Link></div>
 
         <div style={{ fontSize: 22 }} className="navbar-item">
-          <Link to={'/ETC.News/category/health'}
+          <Link to={'/ETC-News/category/health'}
             onClick={() => setTimeout(() => {
               window.location.reload()
             }, 200)}>Health</Link></div>
 
         <div style={{ fontSize: 22 }} className="navbar-item">
-          <Link to={'/ETC.News/category/science'}
+          <Link to={'/ETC-News/category/science'}
             onClick={() => setTimeout(() => {
               window.location.reload()
             }, 200)}>Science</Link></div>
 
         <div style={{ fontSize: 22 }} className="navbar-item">
-          <Link to={'/ETC.News/category/sports'}
+          <Link to={'/ETC-News/category/sports'}
             onClick={() => setTimeout(() => {
               window.location.reload()
             }, 200)}>Sports</Link></div>
 
         <div style={{ fontSize: 22 }} className="navbar-item">
-          <Link to={'/ETC.News/category/technology'}
+          <Link to={'/ETC-News/category/technology'}
             onClick={() => setTimeout(() => {
               window.location.reload()
             }, 200)}>Technology</Link></div>
