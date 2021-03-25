@@ -1,8 +1,6 @@
 // ? Libraries
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
-import axios from 'axios'
-import moment from 'moment'
 
 // ? Components
 
@@ -10,9 +8,14 @@ import moment from 'moment'
 
 import NavBar from './components/Navbar'
 import Home from './components/Home'
-import Category from './components/category'
-import Article from './components/article'
-import Weather from './components/weather'
+import Article from './components/Article'
+import Weather from './components/Weather'
+import Business from './components/Business'
+import Entertainment from './components/Entertainment'
+import Health from './components/Health'
+import Science from './components/Science'
+import Sports from './components/Sports'
+import Technology from './components/Technology'
 
 // ? style
 
@@ -24,10 +27,15 @@ const App = () => (
     <NavBar />
     <Switch>
       <Route exact path="/ETC-News/" component={Home}/>
-      <Route exact path="/ETC-News/category/:id" component={Category}/>
+      <Route exact path="/ETC-News/business/" component={Business}/>
+      <Route exact path="/ETC-News/entertainment/" component={Entertainment}/>
+      <Route exact path="/ETC-News/health/" component={Health}/>
+      <Route exact path="/ETC-News/science/" component={Science}/>
+      <Route exact path="/ETC-News/sports/" component={Sports}/>
+      <Route exact path="/ETC-News/technology/" component={Technology}/>
       <Route exact path="/ETC-News/article" component={Article}/>
       <Route exact path="/ETC-News/weather" component={Weather}/>
-      <Route exact path="/ETC-News/category/:id/article" component={Article}/>
+      <Route exact path="/ETC-News/:id/article" component={Article}/>
     </Switch>
   </BrowserRouter>
 

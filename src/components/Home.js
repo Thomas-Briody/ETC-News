@@ -72,7 +72,7 @@ export default function Home() {
                   backgroundImage: `url(${newsCards[0].urlToImage})`
                 }}>
                 <Link key={newsCards[0].title} to={{
-                  pathname: '/project-2/article',
+                  pathname: '/ETC-News/article',
                   state: {
                     news: newsCards[0],
                     id: ''

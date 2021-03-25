@@ -1,10 +1,6 @@
 import React from 'react'
-//import axios from 'axios'
 import { Link } from 'react-router-dom'
 import moment from 'moment'
-
-
-
 
 
 export default function Article({ match, location }) {
@@ -49,7 +45,7 @@ export default function Article({ match, location }) {
             <Link key={news.name} to={{
               pathname: id === '' ?
                 '/ETC-News' :
-                `/ETC-News/category/${id}`
+                `/ETC-News/${id}`
 
             }}>
               <button className="button is-dark m-0" id="articleButton">Go back</button>
