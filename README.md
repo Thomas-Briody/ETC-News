@@ -90,6 +90,7 @@ Load more option
 
 ### Bugs squished (and not-so-squished)
 API access!
+Deployment - dynamic category loading and weather
 
 ## Assets
 Date js
