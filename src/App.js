@@ -7,6 +7,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 // ? Routes
 
 import NavBar from './components/Navbar'
+import Footer from './components/Footer'
 import Home from './components/Home'
 import Article from './components/Article'
 import Weather from './components/Weather'
@@ -37,6 +38,7 @@ const App = () => (
       <Route exact path="/ETC-News/weather" component={Weather}/>
       <Route exact path="/ETC-News/:id/article" component={Article}/>
     </Switch>
+    <Footer />
   </BrowserRouter>
 
 )
