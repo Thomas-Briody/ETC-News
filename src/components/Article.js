@@ -3,11 +3,10 @@ import { Link } from 'react-router-dom'
 import moment from 'moment'
 
 
-export default function Article({ match, location }) {
+export default function Article({ location }) {
 
   const news = location.state.news
   const id = location.state.id
-  console.log(match, location)
 
   const newsTitle = news.title.split('-')
   newsTitle.pop()
