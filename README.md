@@ -1,6 +1,6 @@
 <img src="https://github.com/ketka82uk/Tic-Tac-Dino/blob/master/unnamed.png?raw=true" alt="drawing" width="150"/>
 
-### General Assembley Software Engineering Immersive Course
+### General Assembly Software Engineering Immersive Course
 
 # ETC News Site
 
