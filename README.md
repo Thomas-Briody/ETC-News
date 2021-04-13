@@ -4,6 +4,8 @@
 
 # ETC News Site
 
+See ETC. News [here](https://ketka82uk.github.io/ETC-News/)
+
 <img src="homepage.png"/>
 
 ## news you need to know.
